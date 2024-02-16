@@ -1,10 +1,10 @@
-import { FixedGridItem } from "../FixedGridItem/FixedGridItem";
+import { FixedGridItem } from '../FixedGridItem/FixedGridItem'
 
 type Props = {
-  name: string;
-  description: string;
-  price: string;
-};
+  name: string
+  description: string
+  price: string
+}
 
 export const FixedGridTitleRow: React.FC<Props> = ({
   name,
@@ -16,4 +16,4 @@ export const FixedGridTitleRow: React.FC<Props> = ({
     <FixedGridItem isHeader>{description}</FixedGridItem>
     <FixedGridItem isHeader>{price}</FixedGridItem>
   </>
-);
+)

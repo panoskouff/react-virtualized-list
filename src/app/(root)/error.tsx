@@ -1,17 +1,17 @@
-"use client";
+'use client'
 
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 export default function Error({
   error,
   reset,
 }: {
-  error: Error;
-  reset: () => void;
+  error: Error
+  reset: () => void
 }) {
   useEffect(() => {
-    console.error(error);
-  }, [error]);
+    console.error(error)
+  }, [error])
 
   return (
     <div>
@@ -25,5 +25,5 @@ export default function Error({
         Try again
       </button>
     </div>
-  );
+  )
 }
