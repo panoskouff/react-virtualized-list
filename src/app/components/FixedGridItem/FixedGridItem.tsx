@@ -6,9 +6,11 @@ type Props = {
 };
 
 export const FixedGridItem: React.FC<Props> = ({ children, isHeader }) => (
-  <div className={styles.gridItem}>
+  <div
+    className={`${styles.gridItem} ${isHeader ? styles.headerItem : ""}`.trim()}
+  >
     <div
-      className={`${styles.textContainer} ${isHeader ? styles.header : ""}`.trim()}
+      className={`${styles.textContainer} ${isHeader ? styles.headerText : ""}`.trim()}
     >
       {children}
     </div>

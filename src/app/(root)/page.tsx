@@ -17,6 +17,66 @@ export default function HomePage() {
           description="Description 1"
           price="100"
         />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
+        <FixedGridRow
+          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
+          description="Description 1"
+          price="100"
+        />
       </div>
     </PageWrapper>
   );

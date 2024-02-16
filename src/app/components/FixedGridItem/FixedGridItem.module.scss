@@ -19,7 +19,14 @@
   width: 100%;
 }
 
-.header {
+.headerItem {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+}
+
+.headerText {
   font-size: 18px;
   font-weight: 800;
 }
