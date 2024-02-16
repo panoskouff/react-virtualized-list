@@ -2,24 +2,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 72px;
-  gap: 10px;
-}
-
-.gridItem {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 72px;
-}
-
-.textContainer {
-  font-size: 16px;
-  line-height: 24px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-  width: 100%;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
 }
