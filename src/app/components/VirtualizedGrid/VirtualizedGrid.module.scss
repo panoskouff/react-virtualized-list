@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  overflow: auto;
+  // @todo use css variable for width, height props or override through className prop
+  width: 100%;
+  height: 1000px;
+  max-height: calc(100vh - 160px);
+}
+
+// @todo grid-item sane defaults with option for override through className prop
+.gridItem {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

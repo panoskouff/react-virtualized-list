@@ -1,5 +1,5 @@
 .spacing {
-  margin: 40px 0;
+  padding: 40px 0;
 }
 
 .flex {
@@ -17,12 +17,4 @@
 .addButton {
   padding: 5px 10px;
   cursor: pointer;
-}
-
-.gridContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 72px;
-  border-left: 1px solid #ccc;
-  border-top: 1px solid #ccc;
 }

@@ -1,7 +1,12 @@
 import styles from "./home.module.scss";
 import { PageWrapper } from "../components/PageWrapper/PageWrapper";
-import { FixedGridTitleRow } from "../components/FixedGridTitleRow/FixedGridTitleRow";
-import { FixedGridRow } from "../components/FixedGridRow/FixedGridRow";
+import { VirtualizedGrid } from "../components/VirtualizedGrid/VirtualizedGrid";
+
+const data = Array.from({ length: 1 * 2 }).map((_, index) => [
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!",
+  "Some Description",
+  index.toString(),
+]);
 
 export default function HomePage() {
   return (
@@ -16,78 +21,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className={styles.gridContainer}>
-        <FixedGridTitleRow
-          name="Name"
-          description="Description"
-          price="Price"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-        <FixedGridRow
-          name="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!"
-          description="Description 1"
-          price="100"
-        />
-      </div>
+      <VirtualizedGrid data={data} cellWidth={200} cellHeight={100} />
     </PageWrapper>
   );
 }
