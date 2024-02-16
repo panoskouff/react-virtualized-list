@@ -1,6 +1,6 @@
 import styles from './home.module.scss'
-import { PageWrapper } from '../components/PageWrapper/PageWrapper'
-import { VirtualizedGrid } from '../components/VirtualizedGrid/VirtualizedGrid'
+import { PageWrapper } from '../../components/PageWrapper/PageWrapper'
+import { VirtualizedGrid } from '../../components/VirtualizedGrid/VirtualizedGrid'
 
 const data = Array.from({ length: 1 * 2 }).map((_, index) => [
   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, atque!',
