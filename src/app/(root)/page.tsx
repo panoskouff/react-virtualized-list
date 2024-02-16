@@ -21,7 +21,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <VirtualizedGrid data={data} cellWidth={200} cellHeight={100} />
+      <VirtualizedGrid data={data} cellWidth={200} cellHeight={74} />
     </PageWrapper>
   )
 }
