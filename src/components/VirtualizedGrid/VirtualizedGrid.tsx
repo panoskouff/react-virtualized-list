@@ -5,7 +5,7 @@ import styles from './VirtualizedGrid.module.scss'
 import { classNames } from '#/utils'
 
 type Props = {
-  data: string[][]
+  dataRows: { id: string; data: string[] }[]
   gridHeight: number
   gridWidth: number
   cellWidth: number
@@ -13,13 +13,15 @@ type Props = {
 }
 
 export const VirtualizedGrid: React.FC<Props> = ({
-  data,
+  dataRows,
   gridHeight,
   gridWidth,
   cellHeight,
   cellWidth,
 }) => {
-  const [visibleData, setVisibleData] = useState<string[][]>([])
+  const [visibleRows, setVisibleRows] = useState<
+    { id: string; data: string[] }[]
+  >([])
   const [scrollPosition, setScrollPosition] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -33,10 +35,13 @@ export const VirtualizedGrid: React.FC<Props> = ({
       Math.floor(scrollPosition / cellHeight) - bufferRowCount,
     )
 
-    const endIndex = Math.min(data.length, startIndex + amountOfRowsToRender)
+    const endIndex = Math.min(
+      dataRows.length,
+      startIndex + amountOfRowsToRender,
+    )
 
-    setVisibleData(data.slice(startIndex, endIndex))
-  }, [scrollPosition, data, amountOfRowsToRender, cellHeight])
+    setVisibleRows(dataRows.slice(startIndex, endIndex))
+  }, [scrollPosition, dataRows, amountOfRowsToRender, cellHeight])
 
   useEffect(() => {
     const onScroll = () => {
@@ -53,8 +58,8 @@ export const VirtualizedGrid: React.FC<Props> = ({
     }
   }, [])
 
-  const scrollMaxHeight = data.length * cellHeight
-  const scrollMaxWidth = data[0].length * cellWidth
+  const scrollMaxHeight = dataRows.length * cellHeight
+  const scrollMaxWidth = dataRows[0] ? dataRows[0].data.length * cellWidth : 0
 
   return (
     <div
@@ -69,21 +74,20 @@ export const VirtualizedGrid: React.FC<Props> = ({
           position: 'relative',
         }}
       >
-        {visibleData.map((row, rowIndex) =>
-          row.map((text, columnIndex) => {
+        {visibleRows.map((row, rowIndex) => {
+          return row.data.map((text, columnIndex) => {
             const actualStartIndex = Math.max(
               0,
               Math.floor(scrollPosition / cellHeight) - bufferRowCount,
             )
             const top = (rowIndex + actualStartIndex) * cellHeight
-
             const left = columnIndex * cellWidth
             const isFirstRowItem = rowIndex === 0 && actualStartIndex === 0
             const isFirstColumnItem = columnIndex === 0
 
             return (
               <div
-                key={`${rowIndex}-${columnIndex}`}
+                key={`${row.id}-${columnIndex}`}
                 className={classNames(
                   styles.gridItem,
                   isFirstRowItem ? styles.firstRowItem : undefined,
@@ -100,8 +104,8 @@ export const VirtualizedGrid: React.FC<Props> = ({
                 <div className={styles.textContainer}>{text}</div>
               </div>
             )
-          }),
-        )}
+          })
+        })}
       </div>
     </div>
   )
