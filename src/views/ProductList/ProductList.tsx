@@ -29,7 +29,7 @@ export function ProductList({ data }: Props) {
       <div className={styles.centerGrid}>
         <VirtualizedGrid
           dataRows={data}
-          gridWidth={620}
+          gridWidth={820}
           gridHeight={700}
           cellWidth={200}
           cellHeight={74}
