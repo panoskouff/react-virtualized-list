@@ -2,7 +2,7 @@
 import styles from './home.module.scss'
 import { PageWrapper } from '../../components/PageWrapper/PageWrapper'
 import { VirtualizedGrid } from '../../components/VirtualizedGrid/VirtualizedGrid'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { AddProductModal } from '#/components/AddProductModal/AddProductModal'
 import { Button } from '#/components/Button/Button'
 
@@ -28,7 +28,7 @@ export default function HomePage() {
 
       <AddProductModal isOpen={isOpen} setIsOpen={setIsOpen} />
 
-      {/* <div className={styles.centerGrid}>
+      <div className={styles.centerGrid}>
         <VirtualizedGrid
           data={data}
           gridWidth={620}
@@ -36,7 +36,7 @@ export default function HomePage() {
           cellWidth={200}
           cellHeight={74}
         />
-      </div> */}
+      </div>
     </PageWrapper>
   )
 }
