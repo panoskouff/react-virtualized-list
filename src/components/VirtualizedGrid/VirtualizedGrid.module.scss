@@ -5,6 +5,7 @@
   width: 100%;
   height: 1000px;
   max-height: calc(100vh - 160px);
+  max-height: calc(100dvh - 160px);
 }
 
 // @todo grid-item sane defaults with option for override through className prop

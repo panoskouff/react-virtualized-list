@@ -7,10 +7,10 @@ import { AddProductModal } from '#/components/AddProductModal/AddProductModal'
 import { Button } from '#/components/Button/Button'
 
 type Props = {
-  data: { id: string; data: string[] }[]
+  products: { id: string; data: string[] }[]
 }
 
-export function ProductList({ data }: Props) {
+export function ProductList({ products }: Props) {
   const [isOpen, setIsOpen] = useState(false)
   const openDialog = () => setIsOpen(true)
 
@@ -28,7 +28,7 @@ export function ProductList({ data }: Props) {
 
       <div className={styles.centerGrid}>
         <VirtualizedGrid
-          dataRows={data}
+          dataRows={products}
           gridWidth={820}
           gridHeight={700}
           cellWidth={200}

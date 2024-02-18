@@ -10,6 +10,7 @@
   transform: translate(-50%, -50%);
   overflow-y: auto;
   z-index: 1;
+  box-shadow: #777 2px 2px 12px 0px;
 
   @media (max-width: 768px) {
     width: 90%;

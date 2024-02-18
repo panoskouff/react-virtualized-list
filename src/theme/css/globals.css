@@ -3,12 +3,8 @@
     scroll-behavior: smooth;
   }
 
-  /* page height */
   html,
   body {
-    /* @todo check if we can use the new viewport
-    units here, to automatically fix the mobile vh issue
-    https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser  */
     height: 100%;
   }
   /* links */
