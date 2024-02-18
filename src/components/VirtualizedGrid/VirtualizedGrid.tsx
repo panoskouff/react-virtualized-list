@@ -1,9 +1,16 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  CSSProperties,
+} from 'react'
 import styles from './VirtualizedGrid.module.scss'
 import { classNames } from '#/utils'
 import { ProductRow } from '#/types'
+import throttle from 'lodash.throttle'
 
 type Props = {
   dataRows: ProductRow[]
@@ -20,13 +27,18 @@ export const VirtualizedGrid: React.FC<Props> = ({
   cellHeight,
   cellWidth,
 }) => {
+  /* since our component rerenders whenever scrollPosition changes 
+    and always produces new visibleRows, memoizing anything related 
+    to these values wont have any impact  */
   const [visibleRows, setVisibleRows] = useState<ProductRow[]>([])
   const [scrollPosition, setScrollPosition] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
 
   const bufferRowCount = 4
-  const amountOfRowsToRender =
-    Math.floor(gridHeight / cellHeight) + 2 * bufferRowCount
+  const amountOfRowsToRender = React.useMemo(
+    () => Math.floor(gridHeight / cellHeight) + 2 * bufferRowCount,
+    [gridHeight, cellHeight],
+  )
 
   useEffect(() => {
     const startIndex = Math.max(
@@ -45,34 +57,45 @@ export const VirtualizedGrid: React.FC<Props> = ({
   useEffect(() => {
     const onScroll = () => {
       if (containerRef.current) {
-        setScrollPosition(containerRef.current.scrollTop)
+        const scrollTop = containerRef.current.scrollTop
+        requestAnimationFrame(() => {
+          setScrollPosition(scrollTop)
+        })
       }
     }
 
+    /* normal invocation of onScroll is once every 16.67ms 
+    since browser's goal is 60fps (1000 ms / 60 = 16.67 ms) */
+    const throttledOnScroll = throttle(onScroll, 50)
+
     const container = containerRef.current
-    container?.addEventListener('scroll', onScroll)
+    container?.addEventListener('scroll', throttledOnScroll)
 
     return () => {
-      container?.removeEventListener('scroll', onScroll)
+      container?.removeEventListener('scroll', throttledOnScroll)
     }
   }, [])
 
-  const scrollMaxHeight = dataRows.length * cellHeight
-  const scrollMaxWidth = dataRows[0] ? dataRows[0].data.length * cellWidth : 0
+  const containerStyle: CSSProperties = useMemo(
+    () => ({
+      width: gridWidth,
+      height: gridHeight,
+      overflow: 'auto',
+    }),
+    [gridWidth, gridHeight],
+  )
+
+  const scrollContainer: CSSProperties = useMemo(() => {
+    return {
+      width: dataRows[0] ? dataRows[0].data.length * cellWidth : 0,
+      height: dataRows.length * cellHeight,
+      position: 'relative',
+    }
+  }, [dataRows, cellHeight, cellWidth])
 
   return (
-    <div
-      ref={containerRef}
-      className={styles.container}
-      style={{ width: gridWidth, height: gridHeight, overflow: 'auto' }}
-    >
-      <div
-        style={{
-          width: scrollMaxWidth,
-          height: scrollMaxHeight,
-          position: 'relative',
-        }}
-      >
+    <div ref={containerRef} className={styles.container} style={containerStyle}>
+      <div style={scrollContainer}>
         {visibleRows.map((row, rowIndex) => {
           return row.data.map((text, columnIndex) => {
             const actualStartIndex = Math.max(
