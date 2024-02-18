@@ -11,6 +11,7 @@ import styles from './VirtualizedGrid.module.scss'
 import { classNames } from '#/utils'
 import { ProductRow } from '#/types'
 import throttle from 'lodash.throttle'
+import { Button } from '../Button/Button'
 
 type Props = {
   dataRows: ProductRow[]
@@ -32,7 +33,7 @@ export const VirtualizedGrid: React.FC<Props> = ({
     to these values wont have any impact  */
   const [visibleRows, setVisibleRows] = useState<ProductRow[]>([])
   const [scrollPosition, setScrollPosition] = useState(0)
-  const containerRef = useRef<HTMLDivElement>(null)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const bufferRowCount = 4
   const amountOfRowsToRender = React.useMemo(
@@ -56,8 +57,8 @@ export const VirtualizedGrid: React.FC<Props> = ({
 
   useEffect(() => {
     const onScroll = () => {
-      if (containerRef.current) {
-        const scrollTop = containerRef.current.scrollTop
+      if (scrollContainerRef.current) {
+        const scrollTop = scrollContainerRef.current.scrollTop
         requestAnimationFrame(() => {
           setScrollPosition(scrollTop)
         })
@@ -68,7 +69,7 @@ export const VirtualizedGrid: React.FC<Props> = ({
     since browser's goal is 60fps (1000 ms / 60 = 16.67 ms) */
     const throttledOnScroll = throttle(onScroll, 50)
 
-    const container = containerRef.current
+    const container = scrollContainerRef.current
     container?.addEventListener('scroll', throttledOnScroll)
 
     return () => {
@@ -76,7 +77,16 @@ export const VirtualizedGrid: React.FC<Props> = ({
     }
   }, [])
 
-  const containerStyle: CSSProperties = useMemo(
+  const handleScrollToTop = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    }
+  }
+
+  const scrollContainerStyle: CSSProperties = useMemo(
     () => ({
       width: gridWidth,
       height: gridHeight,
@@ -85,7 +95,7 @@ export const VirtualizedGrid: React.FC<Props> = ({
     [gridWidth, gridHeight],
   )
 
-  const scrollContainer: CSSProperties = useMemo(() => {
+  const expandScrollContainer: CSSProperties = useMemo(() => {
     return {
       width: dataRows[0] ? dataRows[0].data.length * cellWidth : 0,
       height: dataRows.length * cellHeight,
@@ -94,41 +104,50 @@ export const VirtualizedGrid: React.FC<Props> = ({
   }, [dataRows, cellHeight, cellWidth])
 
   return (
-    <div ref={containerRef} className={styles.container} style={containerStyle}>
-      <div style={scrollContainer}>
-        {visibleRows.map((row, rowIndex) => {
-          return row.data.map((text, columnIndex) => {
-            const actualStartIndex = Math.max(
-              0,
-              Math.floor(scrollPosition / cellHeight) - bufferRowCount,
-            )
-            const top = (rowIndex + actualStartIndex) * cellHeight
-            const left = columnIndex * cellWidth
-            const isFirstRowItem = rowIndex === 0 && actualStartIndex === 0
-            const isFirstColumnItem = columnIndex === 0
+    <div className={styles.container}>
+      <div
+        ref={scrollContainerRef}
+        className={styles.scrollContainer}
+        style={scrollContainerStyle}
+      >
+        <div style={expandScrollContainer}>
+          {visibleRows.map((row, rowIndex) => {
+            return row.data.map((text, columnIndex) => {
+              const actualStartIndex = Math.max(
+                0,
+                Math.floor(scrollPosition / cellHeight) - bufferRowCount,
+              )
+              const top = (rowIndex + actualStartIndex) * cellHeight
+              const left = columnIndex * cellWidth
+              const isFirstRowItem = rowIndex === 0 && actualStartIndex === 0
+              const isFirstColumnItem = columnIndex === 0
 
-            return (
-              <div
-                key={`${row.id}-${columnIndex}`}
-                className={classNames(
-                  styles.gridItem,
-                  isFirstRowItem ? styles.firstRowItem : undefined,
-                  isFirstColumnItem ? styles.firstColumnItem : undefined,
-                )}
-                style={{
-                  width: cellWidth,
-                  height: cellHeight,
-                  position: 'absolute',
-                  top: top,
-                  left: left,
-                }}
-              >
-                <div className={styles.textContainer}>{text}</div>
-              </div>
-            )
-          })
-        })}
+              return (
+                <div
+                  key={`${row.id}-${columnIndex}`}
+                  className={classNames(
+                    styles.gridItem,
+                    isFirstRowItem ? styles.firstRowItem : undefined,
+                    isFirstColumnItem ? styles.firstColumnItem : undefined,
+                  )}
+                  style={{
+                    width: cellWidth,
+                    height: cellHeight,
+                    position: 'absolute',
+                    top,
+                    left,
+                  }}
+                >
+                  <div className={styles.textContainer}>{text}</div>
+                </div>
+              )
+            })
+          })}
+        </div>
       </div>
+      <Button className={styles.scrollToTopButton} onClick={handleScrollToTop}>
+        Scroll To Top
+      </Button>
     </div>
   )
 }

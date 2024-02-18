@@ -1,6 +1,11 @@
 .container {
   position: relative;
   overflow: auto;
+}
+
+.scrollContainer {
+  position: relative;
+  overflow: auto;
   // @todo use css variable for width, height props or override through className prop
   width: 100%;
   height: 1000px;
@@ -36,4 +41,11 @@
   text-overflow: ellipsis;
   text-align: center;
   width: 100%;
+}
+
+.scrollToTopButton {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1;
 }
