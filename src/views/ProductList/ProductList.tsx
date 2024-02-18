@@ -5,14 +5,20 @@ import { VirtualizedGrid } from '../../components/VirtualizedGrid/VirtualizedGri
 import { useState } from 'react'
 import { AddProductModal } from '#/components/AddProductModal/AddProductModal'
 import { Button } from '#/components/Button/Button'
+import { ProductRow } from '#/types'
 
 type Props = {
-  products: { id: string; data: string[] }[]
+  products: ProductRow[]
 }
 
 export function ProductList({ products }: Props) {
+  const [productRows, setProductRows] = useState(products)
   const [isOpen, setIsOpen] = useState(false)
   const openDialog = () => setIsOpen(true)
+
+  const addProduct = (product: ProductRow) => {
+    setProductRows([...productRows, product])
+  }
 
   return (
     <PageWrapper>

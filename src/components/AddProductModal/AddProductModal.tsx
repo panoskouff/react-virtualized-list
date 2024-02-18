@@ -41,7 +41,6 @@ export const AddProductModal: React.FC<Props> = ({ isOpen, setIsOpen }) => {
           />
         </div>
         <div className={styles.space} />
-
         <div className={styles.fieldSet}>
           <label htmlFor='description'>Description:</label>
           <input
@@ -54,7 +53,6 @@ export const AddProductModal: React.FC<Props> = ({ isOpen, setIsOpen }) => {
           />
         </div>
         <div className={styles.space} />
-
         <div className={styles.fieldSet}>
           <label htmlFor='price'>Price:</label>
           <input

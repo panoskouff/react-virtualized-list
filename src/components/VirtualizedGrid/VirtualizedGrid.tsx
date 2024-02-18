@@ -3,9 +3,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styles from './VirtualizedGrid.module.scss'
 import { classNames } from '#/utils'
+import { ProductRow } from '#/types'
 
 type Props = {
-  dataRows: { id: string; data: string[] }[]
+  dataRows: ProductRow[]
   gridHeight: number
   gridWidth: number
   cellWidth: number
@@ -19,9 +20,7 @@ export const VirtualizedGrid: React.FC<Props> = ({
   cellHeight,
   cellWidth,
 }) => {
-  const [visibleRows, setVisibleRows] = useState<
-    { id: string; data: string[] }[]
-  >([])
+  const [visibleRows, setVisibleRows] = useState<ProductRow[]>([])
   const [scrollPosition, setScrollPosition] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
 
