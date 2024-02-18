@@ -16,8 +16,12 @@ export function ProductList({ products }: Props) {
   const [isOpen, setIsOpen] = useState(false)
   const openDialog = () => setIsOpen(true)
 
-  const addProduct = (product: ProductRow) => {
-    setProductRows([...productRows, product])
+  const addProduct = (product: ProductRow, addToTheStart: boolean) => {
+    if (addToTheStart) {
+      setProductRows([product, ...productRows])
+    } else {
+      setProductRows([...productRows, product])
+    }
   }
 
   return (
@@ -30,11 +34,15 @@ export function ProductList({ products }: Props) {
         </div>
       </div>
 
-      <AddProductModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <AddProductModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        addProduct={addProduct}
+      />
 
       <div className={styles.centerGrid}>
         <VirtualizedGrid
-          dataRows={products}
+          dataRows={productRows}
           gridWidth={820}
           gridHeight={700}
           cellWidth={200}
