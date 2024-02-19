@@ -21,7 +21,7 @@ async function fetchProducts(): Promise<ProductRow[]> {
   return products
 }
 
-async function ProductListWithSuspense() {
+async function FetchAndDisplayProductList() {
   const products = await fetchProducts()
   return <ProductList products={products} />
 }
@@ -31,7 +31,7 @@ export default async function HomePage() {
     <Suspense
       fallback={<div className={styles.loading}>Loading product data...</div>}
     >
-      <ProductListWithSuspense />
+      <FetchAndDisplayProductList />
     </Suspense>
   )
 }
