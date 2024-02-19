@@ -7,7 +7,7 @@ type Props = {
   GridRows: JSX.Element[][]
   handleScrollToTop: () => void
   scrollContainerStyle: CSSProperties
-  expandScrollContainer: CSSProperties
+  expandedScrollContainerStyle: CSSProperties
 }
 
 export const VirtualizedGrid: React.FC<Props> = ({
@@ -15,12 +15,14 @@ export const VirtualizedGrid: React.FC<Props> = ({
   GridRows,
   handleScrollToTop,
   scrollContainerStyle,
-  expandScrollContainer,
+  expandedScrollContainerStyle,
 }) => (
   <div className={styles.container}>
     <div ref={scrollContainerRef} style={scrollContainerStyle}>
-      <div style={expandScrollContainer}>{GridRows}</div>
+      <div style={expandedScrollContainerStyle}>{GridRows}</div>
     </div>
-    <Button onClick={handleScrollToTop}>Scroll To Top</Button>
+    <Button className={styles.scrollToTopButton} onClick={handleScrollToTop}>
+      Scroll To Top
+    </Button>
   </div>
 )
