@@ -5,9 +5,9 @@ import { ProductRow } from '#/types'
 import { GridItem } from './GridItem'
 import { VirtualizedGrid } from './VirtualizedGrid'
 import { calculateGridItemProps } from './helpers'
-import { useVisibleRows } from './useVisibleRows'
+import { useVisibleRows } from './hooks/useVisibleRows'
 import { useElementScrollTopPosition } from '#/hooks/useElementScrollTopPosition'
-import { useContainerStyles } from './useContainerStyles'
+import { useContainerStyles } from './hooks/useContainerStyles'
 import { scrollToTop } from '#/utils'
 
 type Props = {
