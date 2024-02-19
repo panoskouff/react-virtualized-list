@@ -18,7 +18,11 @@ export const VirtualizedGrid: React.FC<Props> = ({
   expandedScrollContainerStyle,
 }) => (
   <div className={styles.container}>
-    <div ref={scrollContainerRef} style={scrollContainerStyle}>
+    <div
+      className={styles.scrollContainer}
+      ref={scrollContainerRef}
+      style={scrollContainerStyle}
+    >
       <div style={expandedScrollContainerStyle}>{GridRows}</div>
     </div>
     <Button className={styles.scrollToTopButton} onClick={handleScrollToTop}>

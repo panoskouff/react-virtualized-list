@@ -24,7 +24,6 @@ export const useContainerStyles = ({
       scrollContainerStyle: {
         width: gridWidth,
         height: gridHeight,
-        overflow: 'auto',
       },
       expandedScrollContainerStyle: {
         width: dataRows[0] ? dataRows[0].data.length * cellWidth : 0,
