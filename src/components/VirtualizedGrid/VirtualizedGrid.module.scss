@@ -12,35 +12,6 @@
   max-height: calc(100dvh - 160px);
 }
 
-.gridItem {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-
-  &.firstRowItem {
-    border-top: 1px solid #ccc;
-  }
-
-  &.firstColumnItem {
-    border-left: 1px solid #ccc;
-  }
-}
-
-.textContainer {
-  font-size: 16px;
-  line-height: 24px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-  width: 100%;
-}
-
 .scrollToTopButton {
   position: absolute;
   bottom: 20px;

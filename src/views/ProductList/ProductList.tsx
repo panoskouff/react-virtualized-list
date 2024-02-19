@@ -1,7 +1,7 @@
 'use client'
 import styles from './ProductList.module.scss'
 import { PageWrapper } from '../../components/PageWrapper/PageWrapper'
-import { VirtualizedGrid } from '../../components/VirtualizedGrid/VirtualizedGrid'
+import { VirtualizedGrid } from '../../components/VirtualizedGrid'
 import { useState } from 'react'
 import { AddProductModal } from '#/components/AddProductModal'
 import { Button } from '#/components/Button/Button'
