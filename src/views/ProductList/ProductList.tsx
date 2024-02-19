@@ -3,7 +3,7 @@ import styles from './ProductList.module.scss'
 import { PageWrapper } from '../../components/PageWrapper/PageWrapper'
 import { VirtualizedGrid } from '../../components/VirtualizedGrid/VirtualizedGrid'
 import { useState } from 'react'
-import { AddProductModal } from '#/components/AddProductModal/AddProductModal'
+import { AddProductModal } from '#/components/AddProductModal'
 import { Button } from '#/components/Button/Button'
 import { ProductRow } from '#/types'
 
