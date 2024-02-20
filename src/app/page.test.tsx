@@ -42,7 +42,7 @@ jest.mock('#/utils/fetchFakeProducts', () => {
 })
 
 describe('HomePage', () => {
-  it('Should show a loading state with a fallback until HomePage loads', async () => {
+  it('Should show loading state as a fallback until HomePage loads', async () => {
     // we need to await because jest does not support async rendering
     // https://github.com/testing-library/react-testing-library/issues/1209
     render(await HomePage())
@@ -54,7 +54,7 @@ describe('HomePage', () => {
     )
   })
 
-  it('Should render FetchAndDisplayProductList component as a child of Suspense', async () => {
+  it('Should render FetchAndDisplayProductList component once loaded', async () => {
     render(await HomePage())
     expect(screen.getByText('[FetchAndDisplayProductList]')).toBeInTheDocument()
   })
