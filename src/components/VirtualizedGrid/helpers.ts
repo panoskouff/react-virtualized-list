@@ -1,13 +1,22 @@
 import { CSSProperties } from 'react'
 
-export const calculateGridItemProps = (
-  rowIndex: number,
-  columnIndex: number,
-  scrollPosition: number,
-  cellHeight: number,
-  cellWidth: number,
-  bufferRowCount: number,
-): {
+type CalculateGridItemPropsParams = {
+  rowIndex: number
+  columnIndex: number
+  scrollPosition: number
+  cellHeight: number
+  cellWidth: number
+  bufferRowCount: number
+}
+
+export const calculateGridItemProps = ({
+  rowIndex,
+  columnIndex,
+  scrollPosition,
+  cellHeight,
+  cellWidth,
+  bufferRowCount,
+}: CalculateGridItemPropsParams): {
   isFirstRowItem: boolean
   isFirstColumnItem: boolean
   gridItemStyle: CSSProperties

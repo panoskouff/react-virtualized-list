@@ -28,13 +28,13 @@ export const VirtualizedGridContainer: React.FC<Props> = ({
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const scrollPosition = useElementScrollTopPosition(scrollContainerRef)
   const bufferRowCount = 4
-  const visibleRows = useVisibleRows(
+  const visibleRows = useVisibleRows({
     dataRows,
     scrollPosition,
     cellHeight,
     gridHeight,
     bufferRowCount,
-  )
+  })
   const handleScrollToTop = () => scrollToTop(scrollContainerRef)
 
   const { scrollContainerStyle, expandedScrollContainerStyle } =
@@ -49,14 +49,14 @@ export const VirtualizedGridContainer: React.FC<Props> = ({
   const gridRows = visibleRows.map((row, rowIndex) => {
     return row.data.map((text, columnIndex) => {
       const { gridItemStyle, isFirstRowItem, isFirstColumnItem } =
-        calculateGridItemProps(
+        calculateGridItemProps({
           rowIndex,
           columnIndex,
           scrollPosition,
           cellHeight,
           cellWidth,
           bufferRowCount,
-        )
+        })
 
       return (
         <GridItem

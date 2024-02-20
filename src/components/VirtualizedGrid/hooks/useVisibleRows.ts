@@ -1,13 +1,21 @@
 import { ProductRow } from '#/types'
 import { useMemo } from 'react'
 
-export const useVisibleRows = (
-  dataRows: ProductRow[],
-  scrollPosition: number,
-  cellHeight: number,
-  gridHeight: number,
+type UseVisibleRowsParams = {
+  dataRows: ProductRow[]
+  scrollPosition: number
+  cellHeight: number
+  gridHeight: number
+  bufferRowCount?: number
+}
+
+export const useVisibleRows = ({
+  dataRows,
+  scrollPosition,
+  cellHeight,
+  gridHeight,
   bufferRowCount = 4,
-) => {
+}: UseVisibleRowsParams) => {
   const amountOfRowsToRender = useMemo(
     () => Math.floor(gridHeight / cellHeight) + 2 * bufferRowCount,
     [gridHeight, cellHeight, bufferRowCount],
