@@ -28,10 +28,10 @@ To get a local copy up and running follow these simple steps.
 
 This project includes several scripts you can use to develop, build, and test the application:
 
-- `npm dev`: Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-- `npm build`: Builds the app for production to the `.next` folder.
-- `npm start`: Starts the Node.js server.
-- `npm lint`: Runs ESLint to catch syntax and problems.
-- `npm format`: Formats code using Prettier.
-- `npm test`: Runs Jest tests once.
-- `npm test:watch`: Runs Jest in watch mode.
+- `npm run dev`: Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `npm run build`: Builds the app for production to the `.next` folder.
+- `npm run start`: Starts the Node.js server.
+- `npm run lint`: Runs ESLint to catch syntax and problems.
+- `npm run format`: Formats code using Prettier.
+- `npm run test`: Runs Jest tests once.
+- `npm run test:watch`: Runs Jest in watch mode.
