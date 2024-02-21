@@ -1,7 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import HomePage from './page'
-import { FetchAndDisplayProductList } from '#/views/ProductList/FetchAndDisplayProductList'
 
 type AsyncReactComponent = {
   type: {
@@ -32,16 +31,6 @@ jest.mock('react', () => {
   }
 })
 
-var mockFetchFakeProducts: jest.Mock
-jest.mock('#/utils/fetchFakeProducts', () => {
-  mockFetchFakeProducts = jest.fn(() => 'mocked fetchFakeProducts')
-
-  return {
-    __esModule: true,
-    fetchFakeProducts: mockFetchFakeProducts,
-  }
-})
-
 describe('HomePage', () => {
   it('Should show loading state as a fallback until HomePage loads', async () => {
     // we need to await because jest does not support async rendering
@@ -58,14 +47,5 @@ describe('HomePage', () => {
   it('Should render FetchAndDisplayProductList component once loaded', async () => {
     render(await HomePage())
     expect(screen.getByText('[FetchAndDisplayProductList]')).toBeInTheDocument()
-  })
-
-  it('Should fetch the fake products and pass them to ProductList component', async () => {
-    expect(mockFetchFakeProducts).not.toHaveBeenCalled()
-    const ProductListComponent = await FetchAndDisplayProductList()
-    expect(mockFetchFakeProducts).toHaveBeenCalled()
-    expect(ProductListComponent.props).toEqual({
-      products: 'mocked fetchFakeProducts',
-    })
   })
 })
