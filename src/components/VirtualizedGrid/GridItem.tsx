@@ -4,7 +4,7 @@ import { classNames } from '#/utils'
 
 type GridItemProps = {
   text: string
-  style: React.CSSProperties
+  style?: React.CSSProperties
   isFirstRowItem: boolean
   isFirstColumnItem: boolean
 }
