@@ -16,6 +16,7 @@ type Props = {
   gridWidth: number
   cellWidth: number
   cellHeight: number
+  bufferRowCount?: number
 }
 
 export const VirtualizedGridContainer: React.FC<Props> = ({
@@ -24,10 +25,11 @@ export const VirtualizedGridContainer: React.FC<Props> = ({
   gridWidth,
   cellHeight,
   cellWidth,
+  bufferRowCount = 4,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const scrollPosition = useElementScrollTopPosition(scrollContainerRef)
-  const bufferRowCount = 4
+
   const visibleRows = useVisibleRows({
     dataRows,
     scrollPosition,

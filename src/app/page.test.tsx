@@ -60,6 +60,7 @@ describe('HomePage', () => {
   })
 
   it('Should fetch the fake products and pass them to ProductList component', async () => {
+    expect(mockFetchFakeProducts).not.toHaveBeenCalled()
     const ProductListComponent = await FetchAndDisplayProductList()
     expect(mockFetchFakeProducts).toHaveBeenCalled()
     expect(ProductListComponent.props).toEqual({

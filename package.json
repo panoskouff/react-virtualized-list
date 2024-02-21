@@ -15,7 +15,7 @@
     "lint": "pnpm eslint --ext .js,.jsx,.ts,.tsx .",
     "format": "pnpm prettier --write .",
     "test:watch": "jest --watch",
-    "test:ci": "jest --ci"
+    "test": "jest --ci"
   },
   "dependencies": {
     "lodash.throttle": "^4.1.1",
