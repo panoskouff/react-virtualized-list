@@ -1,34 +1,45 @@
-# todo
+https://react-virtualized-list-six.vercel.app/
+
+# React Virtualized
+
+A simple application with a virtualized list of products, designed to demonstrate the efficiency of virtualizing long lists in web applications. This project is built using Next.js and React.
+
+## Author
+
+Panagiotis Koufopoulos
+
+## Repository
+
+[https://github.com/panoskouff/todo.git](https://github.com/panoskouff/todo.git)
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running follow these simple steps.
 
-```bash
-pnpm dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (Preferably the latest version)
+- A package manager like npm or Yarn (This project uses pnpm for scripts)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Clone the repo
+   ```sh
+   git clone https://github.com/panoskouff/todo.git
+   ```
+2. Install NPM packages
+   ```sh
+   pnpm install
+   ```
+   
+## Usage
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This project includes several scripts you can use to develop, build, and test the application:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `npm dev`: Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `npm build`: Builds the app for production to the `.next` folder.
+- `npm start`: Starts the Node.js server.
+- `npm lint`: Runs ESLint to catch syntax and problems.
+- `npm format`: Formats code using Prettier.
+- `npm test`: Runs Jest tests once.
+- `npm test:watch`: Runs Jest in watch mode.

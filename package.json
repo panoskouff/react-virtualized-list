@@ -1,6 +1,6 @@
 {
-  "name": "todo",
-  "description": "My personal website",
+  "name": "react-virtualized",
+  "description": "A simple application with a virtualized list of products",
   "author": "Panagiotis Koufopoulos",
   "repository": {
     "type": "git",
