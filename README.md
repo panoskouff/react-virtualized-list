@@ -1,16 +1,8 @@
-https://react-virtualized-list-six.vercel.app/
-
 # React Virtualized
 
 A simple application with a virtualized list of products, designed to demonstrate the efficiency of virtualizing long lists in web applications. This project is built using Next.js and React.
 
-## Author
-
-Panagiotis Koufopoulos
-
-## Repository
-
-[https://github.com/panoskouff/todo.git](https://github.com/panoskouff/todo.git)
+https://react-virtualized-list-six.vercel.app/
 
 ## Getting Started
 
@@ -25,11 +17,11 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/panoskouff/todo.git
+   git clone https://github.com/panoskouff/react-virtualized-list
    ```
 2. Install NPM packages
    ```sh
-   pnpm install
+   npm install
    ```
    
 ## Usage
