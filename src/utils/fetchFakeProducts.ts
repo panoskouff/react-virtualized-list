@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 import { ProductRow } from '#/types'
 
-const initialLength = 200_000
+const initialLength = 100_000
 
 const products: ProductRow[] = Array.from(
   { length: initialLength },
