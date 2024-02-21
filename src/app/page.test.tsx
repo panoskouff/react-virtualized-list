@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import HomePage, { FetchAndDisplayProductList } from './page'
+import HomePage from './page'
+import { FetchAndDisplayProductList } from '#/views/ProductList/FetchAndDisplayProductList'
 
 type AsyncReactComponent = {
   type: {

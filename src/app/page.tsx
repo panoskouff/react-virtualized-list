@@ -1,12 +1,6 @@
-import { ProductList } from '#/views/ProductList/ProductList'
 import styles from '#/app/page.module.scss'
 import { Suspense } from 'react'
-import { fetchFakeProducts } from '#/utils'
-
-export async function FetchAndDisplayProductList() {
-  const products = await fetchFakeProducts()
-  return <ProductList products={products} />
-}
+import { FetchAndDisplayProductList } from '#/views/ProductList/FetchAndDisplayProductList'
 
 export default async function HomePage() {
   return (
