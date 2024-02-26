@@ -13,7 +13,7 @@ To get a local copy up and running follow these simple steps.
 - Node.js (Preferably the latest version)
 - A package manager like npm or Yarn (This project uses pnpm for scripts)
 
-### Installation
+### Installation 
 
 1. Clone the repo
    ```sh
